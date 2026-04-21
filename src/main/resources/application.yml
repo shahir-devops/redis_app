@@ -9,6 +9,13 @@ spring:
       password: ${MONGO_DB_PASSWORD}
       database: users
       authentication-database: admin
-
+  redis:
+    host: redis-master.cache.svc.cluster.local
+    port: 6379
+    password: ${REDIS_PASSWORD}
+  cache:
+    type: redis
+    redis:
+      time-to-live: 600000
 server:
   port: 8080
