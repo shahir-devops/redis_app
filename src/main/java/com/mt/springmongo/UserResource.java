@@ -17,12 +17,7 @@ import org.springframework.cache.annotation.Cacheable;
  *
  * @author Mithun
  */
-@GetMapping(value = "/{id}", produces = "application/JSON")
-@Cacheable(value = "users", key = "#userID")   // 👈 ADD THIS LINE
-public Optional<User> findById(@PathVariable("id") String userID) {
-    logger.info("Get User By Id : "+userID);
-    return userRepository.findById(userID);
-}
+
 @RestController
 @RequestMapping(value = "/api/users")
 public class UserResource {
@@ -44,6 +39,7 @@ public class UserResource {
     }
 
     @GetMapping(value = "/{id}", produces = "application/JSON")
+    @Cacheable(value = "users", key = "#userID")
     public Optional<User> findById(@PathVariable("id") String userID) {
     	logger.info("Get User By Id : "+userID);
         return userRepository.findById(userID);
