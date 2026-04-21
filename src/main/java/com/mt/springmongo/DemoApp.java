@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author Mithun 
  */
 @Controller
+@EnableCaching
 @EnableAutoConfiguration
 @ComponentScan(basePackages = "com.mt.*")
 public class DemoApp {
